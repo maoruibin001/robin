@@ -1,0 +1,45 @@
+{
+  "name": "robin",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build:pro": "node ./util/rm.js && node ./build/build.js -pro && npm run start",
+    "build": "node ./util/rm.js && node ./build/build.js && npm run start",
+    "start": "node ./bin/www",
+    "rm": "node ./util/rm.js"
+  },
+  "dependencies": {
+    "angular": "^1.6.5",
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "ejs": "~2.5.6",
+    "express": "~4.15.2",
+    "glob": "^7.1.2",
+    "html-withimg-loader": "^0.1.16",
+    "morgan": "~1.8.1",
+    "serve-favicon": "~2.4.2",
+    "vue": "^2.3.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-runtime": "^6.23.0",
+    "babel-helpers": "^6.24.1",
+    "babel-types": "^6.25.0",
+    "babel-plugin-transform-runtime": "^6.22.0",
+    "babel-preset-env": "^1.2.1",
+    "babel-preset-stage-2": "^6.22.0",
+    "babel-register": "^6.22.0",
+    "babel-generator": "^6.25.0",
+    "html-webpack-plugin": "^2.29.0",
+    "string-loader": "^0.0.1",
+    "webpack": "^3.1.0",
+    "url-loader": "^0.5.9",
+    "css-loader": "^0.28.4",
+    "style-loader": "^0.18.2",
+    "webpack-merge": "^4.1.0",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "file-loader": "^0.11.2"
+  }
+}
