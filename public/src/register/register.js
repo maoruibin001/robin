@@ -1,15 +1,16 @@
+/**
+ * Created by lenovo on 2017/7/11.
+ */
+
 import '../../stylesheets/common/style.css';
-import '../../stylesheets/login/login.css';
 import Vue from 'vue';
 
 
 new Vue({
-    el: '#loginModal',
-    data() {
+    el: '#container',
+    data: function() {
         return {
-            name: 'maoruibin',
-            user: '333',
-            password: ''
+            name: 'maoruibin'
         }
     },
     methods: {

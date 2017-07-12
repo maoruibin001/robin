@@ -1,13 +1,6 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.center {
+  margin:0 auto !important;
 }
-
-a {
-  color: #00B7FF;
-}
-.bg {
-  width: 200px;
-  height: 200px;
-  background: url('../images/213.jpg')
+.show {
+  display: block !important;
 }

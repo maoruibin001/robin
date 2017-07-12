@@ -3,7 +3,8 @@
 /**
  * Module dependencies.
  */
-const app = require('../app');
+const initApp = require('../app/initApp');
+const app = require('../app')(initApp);
 const config = require('../config/config');
 const http = require('http');
 const debug = require('debug');

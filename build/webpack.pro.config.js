@@ -8,20 +8,25 @@ const path = require('path');
 const glob = require('glob');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+// const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 
 const webpackConfig = merge(baseWebpackConfig, {
     entry: {},
     output: {
         path: path.resolve(__dirname, '../public/dist/'),
         filename: '[name]/[name]-[hash].js',
-        publicPath: 'http://localhost:3000/'
+        publicPath: 'http://localhost:3000/',
+        chunkFilename: "[name]/[name]-[hash].js",
     },
     plugins: [
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false
             }
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: ['vendor'],
+            filename: 'commons/[name].bundle.js'
         })
     ]
 });
@@ -45,22 +50,26 @@ let getEntries = function (filePath, folderLevel) {
 
 let filePath = '../public/src/**/*.js';
 let entries = getEntries(filePath, 2);
-
 Object.keys(entries).forEach(function(name) {
+    let _filename = '';
+    if (name === 'index') {
+        _filename = 'index.html';
+    } else {
+        _filename = name + '/' + name + '.html';
+    }
+
     // 每个页面生成一个entry，如果需要HotUpdate，在这里修改entry
     webpackConfig.entry[name] = entries[name];
-
     // 每个页面生成一个html
-    console.log(name + '/' + name + '.html');
     let plugin = new HtmlWebpackPlugin({
         // 生成出来的html文件名
-        filename: name + '/' + name + '.html',
+        filename: _filename,
         // 每个html的模版，这里多个页面使用同一个模版
         template: entries[name].split('.')[0] + '.html',
         // 自动将引用插入html
         inject: true,
         // 每个html引用的js模块，也可以在这里加上vendor等公用模块
-        chunks: [name],
+        chunks: ['vendor', name],
         // 压缩html
         minify: {
             removeComments: true,

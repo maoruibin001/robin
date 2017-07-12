@@ -1,13 +1,26 @@
 /**
  * Created by lenovo on 2017/7/10.
  */
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
+
 const webpackConfig = {
+    entry: {
+        vendor: ["vue"]
+    },
     module: {
         loaders: [
-            {test: /\.js$/, loader: 'babel-loader',include: [path.resolve(__dirname, 'src')]},
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                include: [path.resolve(__dirname, '../public/src')]
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                exclude: [path.resolve(__dirname, '../node_modules')]
+            },
             {test: /\.html$/, loader: 'string-loader'},
             {test: /\.css$/, loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: [{loader: 'css-loader', options:{minimize: true}}]})},
             {test: /\.jpg$/, loader: 'url-loader', options: {  // query是对loader做额外的选项配置
@@ -17,14 +30,20 @@ const webpackConfig = {
             }
         ]
     },
-
+    cache: true,
     resolve: {
         alias: {
             'vue$': 'vue/dist/vue.common.js'
-        }
+        },
+        extensions: ['.js', '.json']
     },
     plugins: [
-        new ExtractTextPlugin('stylesheets/[name].css')
+        new ExtractTextPlugin('stylesheets/[name].css'),
+        // new webpack.HotModuleReplacementPlugin(),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: ['vendor'],
+            filename: 'commons/[name].bundle.js'
+        })
     ]
 };
 

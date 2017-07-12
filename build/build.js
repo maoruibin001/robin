@@ -2,15 +2,18 @@
  * Created by lenovo on 2017/7/10.
  */
 const webpack = require('webpack');
+const rf = require('rimraf');
+const path = require('path');
+const ora = require('ora');
 
-let webpackConfig = null;
+let webpackConfig = null,
+    spinner = ora('production start....');
 
-if (process.argv.indexOf('-pro') !== -1) {
-     webpackConfig = require('./webpack.pro.config');
-} else {
-    webpackConfig = require('./webpack.dev.config');
-}
+spinner.start();
+rf.sync(path.resolve(__dirname, '../public/dist'));
+webpackConfig = require('./webpack.pro.config');
 webpack(webpackConfig, function(err, stats) {
+    spinner.stop();
     if (err) {
         throw new Error(err);
     }
@@ -22,4 +25,4 @@ webpack(webpackConfig, function(err, stats) {
             chunks: false,
             chunkModules: false
         }) + '\n\n');
-})
+});
