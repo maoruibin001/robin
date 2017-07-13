@@ -1,0 +1,1 @@
+webpackJsonp([0],[,function(n,o){},,,,,function(n,o,t){"use strict";t(1),t(7);var e=t(0);new(function(n){return n&&n.__esModule?n:{default:n}}(e).default)({el:"#loginModal",data:function(){return{name:"maoruibin",user:"333",password:""}},methods:{test:function(){console.log(222)}}})},function(n,o){}],[6]);

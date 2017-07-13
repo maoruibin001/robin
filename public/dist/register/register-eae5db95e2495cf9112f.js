@@ -1,0 +1,1 @@
+webpackJsonp([1],{1:function(n,t){},8:function(n,t,e){"use strict";e(1);var o=e(0);new(function(n){return n&&n.__esModule?n:{default:n}}(o).default)({el:"#container",data:function(){return{name:"maoruibin"}},methods:{test:function(){console.log(222)}}})}},[8]);

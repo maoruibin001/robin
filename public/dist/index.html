@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset=UTF-8>
+    <title>登录</title>
+    <link rel="shortcut icon" href=/images/favicon.ico>
+    <link href=https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.css rel=stylesheet>
+    <link href=http://localhost:3000/stylesheets/index.css rel=stylesheet>
+</head>
+<body>
+<div id=loginModal class="modal show" style=display:block>
+    <div class=modal-dialog>
+        <div class=modal-content>
+            <div class=modal-header><h1 class="text-center text-primary center" style="margin:0 auto">登录</h1></div>
+            <div class=modal-body>
+                <form action="" class="form col-md-12 center-block">
+                    <div class=form-group><input type=text class="form-control input-lg" v-model=user placeholder=电子邮件>
+                    </div>
+                    <div class=form-group><input type=password class="form-control input-lg" v-model=password
+                                                 placeholder=登录密码></div>
+                    <div class=form-group>
+                        <button class="btn btn-primary btn-lg btn-block">立刻登录</button>
+                        <span><a class=hover href=../getBackPs/getBackPs.html>找回密码</a></span> <span><a
+                            class="pull-right hover">注册</a></span></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type=text/javascript src=http://localhost:3000/commons/vendor.bundle.js></script>
+<script type=text/javascript src=http://localhost:3000/index/index-eae5db95e2495cf9112f.js></script>
+</body>
+</html>
