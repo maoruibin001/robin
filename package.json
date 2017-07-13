@@ -2,11 +2,19 @@
   "name": "robin",
   "version": "0.0.0",
   "private": true,
+  "author": "maoruibin",
+  "bugs": {"email": "www.maoruibin@163.com"},
+  "description": "this is a front front-end and back-end project",
+  "contributors": [{"name": "毛瑞彬"}],
   "scripts": {
     "build": "node ./build/build.js",
     "dev": "node ./build/devServer.js",
     "start": "node ./bin/www node",
     "rm": "node ./util/rm.js"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": "6.10.3"
   },
   "keywords": [
     "webpack",
