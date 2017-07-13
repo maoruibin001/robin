@@ -35,11 +35,7 @@
 ```
 
 ## 打包&开发环境
-    * 上产打包
-    ```
+    * 生产打包
     npm run build && npm start
-    ```
     * 开发环境
-    ```
     npm run dev
-    ```
